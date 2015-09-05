@@ -1,10 +1,22 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="/static/index.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	</head>
 	<body>
 		<h1>Very Basic Webpage</h1>
 		<p>Some paragraph something something lorem ipsum something something</p>
+		{% for item in db %}
+		<h2>{{item.title}}</h2>
+		<p>{{item.body}}</p>
+		{% endfor %}
+		<form action='posts/new' method='get'>
+			<input type=text placeholder='title' name='title'></input>
+			<br>
+			<textarea type=text rows='5' placeholder='body of post' name='body'></textarea>
+			<br>
+			<button type='submit'>Submit post</button>
+		</form>
 	</body>
 </html>
 
